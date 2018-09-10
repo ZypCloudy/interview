@@ -4,6 +4,11 @@ package CodingInterviewChinese2.java;
 // 题目：请实现一个函数，把字符串中的每个空格替换成"%20"。例如输入“We are happy.”，
 // 则输出“We%20are%20happy.”。
 public class _05_ReplaceSpaces {
+    /**
+     * 方法一，新建一个字符串替换
+     * @param str
+     * @return
+     */
     public static String replaceSpace(StringBuffer str) {
         if (str == null) {
             return null;
@@ -21,6 +26,35 @@ public class _05_ReplaceSpaces {
         }
         return str2.toString();
     }
+
+    /**
+     * 方法二，直接操作原字符串替换
+     * @param str
+     * @return
+     */
+    public static String replaceBlank(StringBuffer str) {
+        int oldLen = str.length();
+        int len = oldLen;
+        for (int i = 0; i < str.length(); ++i) {
+            if (str.charAt(i) == ' ')
+                len += 2;
+        }
+        str.setLength(len);
+
+        for (int i = oldLen - 1, j = len - 1; i >= 0; ) {
+            if (str.charAt(i) == ' ') {
+                str.setCharAt(j--, '0');
+                str.setCharAt(j--, '2');
+                str.setCharAt(j--, '%');
+                --i;
+            } else {
+                str.setCharAt(j--, str.charAt(i--));
+            }
+        }
+        return str.toString();
+    }
+
+    // ====================测试代码====================
     public static void main(String[] args) {
         test1();
         test2();
