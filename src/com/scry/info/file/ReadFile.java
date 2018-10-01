@@ -1,4 +1,4 @@
-package com.scry.info;
+package com.scry.info.file;
 
 import java.io.File;
 import java.io.FileInputStream;

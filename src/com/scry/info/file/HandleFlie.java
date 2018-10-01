@@ -1,4 +1,4 @@
-package com.scry.info;
+package com.scry.info.file;
 
 import java.io.*;
 
@@ -9,7 +9,7 @@ import java.io.*;
  * 二，如果文件不存在，把数据写入文件中，返回空数据；
  * 三，如果文件中有数据，则返回旧数据，并使用新数据覆盖原来的数据；
  * 四，每次数据长度大于8byte
- * 
+ *
  * 思路：先读文件，返回文件旧内容，再写文件。
  *
  * @author Cloudy
